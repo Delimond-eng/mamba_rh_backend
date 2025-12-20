@@ -16,7 +16,6 @@
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/apple-touch-icon.png') }}">
 
-    <!-- Theme Script js -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
