@@ -23,10 +23,6 @@ return new class extends Migration
                 $table->string("ended_at")->nullable();
                 $table->string("duree")->nullable();
                 $table->string("retard")->nullable();
-                $table->string("photos_debut")->nullable();
-                $table->string("photos_fin")->nullable();
-                $table->string("status_photo_debut")->nullable();
-                $table->string("status_photo_fin")->nullable();
                 $table->string("commentaires")->nullable();
                 $table->string("status")->default("arrive");
                 $table->date('date_reference')->nullable();

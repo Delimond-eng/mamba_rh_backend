@@ -36,7 +36,6 @@ class Agent extends Model
         "fullname",
         "password",
         "role",
-        "agency_id",
         "site_id",
         "groupe_id",
         "status"
@@ -81,27 +80,12 @@ class Agent extends Model
         return $this->belongsTo(Site::class, foreignKey:"site_id",);
     }
 
-
-
-    /**
-     * Belongs to agency
-     * @return BelongsTo
-    */
-    public function agencie() : BelongsTo{
-        return $this->belongsTo(Agencie::class, foreignKey:"agency_id",);
-    }
-
     /**
      * Belongs to agency
      * @return BelongsTo
     */
     public function groupe() : BelongsTo{
         return $this->belongsTo(AgentGroup::class, foreignKey:"groupe_id",);
-    }
-
-
-    public function stories(){
-        return $this->hasMany(AgentHistory::class, "agent_id", "id");
     }
 
     public function plannings()

@@ -2,138 +2,1440 @@
 
 @section("content")
 <!-- BEGIN: Content -->
-<div
-    class="md:max-w-auto min-h-screen min-w-0 max-w-full flex-1 rounded-[30px] bg-slate-100 px-4 pb-10 before:block before:h-px before:w-full before:content-[''] dark:bg-darkmode-700 md:px-[22px]">
-    <!-- BEGIN: Top Bar -->
-    <div class="relative z-[51] flex h-[67px] items-center border-b border-slate-200">
-        <!-- BEGIN: Breadcrumb -->
-        <nav aria-label="breadcrumb" class="flex -intro-x mr-auto hidden sm:flex">
-            <ol class="flex items-center text-theme-1 dark:text-slate-300">
-                <li class="">
-                    <a href="#">Salama</a>
-                </li>
-                <li
-                    class="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-chevron-black before:transform before:rotate-[-90deg] before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-chevron-white text-slate-800 cursor-text dark:text-slate-400">
-                    <a href="#">Tableau de bord</a>
-                </li>
-            </ol>
-        </nav>
-        <!-- END: Breadcrumb -->
-        <!-- BEGIN: Account Menu -->
-        <x-user-session></x-user-session>
-        <!-- END: Account Menu -->
+ <div class="content">
+
+    <!-- Breadcrumb -->
+    <div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
+        <div class="my-auto mb-2">
+            <h2 class="mb-1">Employee Dashboard</h2>
+            <nav>
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="ti ti-smart-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        Dashboard
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Employee Dashboard</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex my-xl-auto right-content align-items-center flex-wrap ">
+            <div class="me-2 mb-2">
+                <div class="dropdown">
+                    <a href="javascript:void(0);"
+                        class="dropdown-toggle btn btn-white d-inline-flex align-items-center"
+                        data-bs-toggle="dropdown">
+                        <i class="ti ti-file-export me-1"></i>Export
+                    </a>
+                    <ul class="dropdown-menu  dropdown-menu-end p-3">
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item rounded-1"><i
+                                    class="ti ti-file-type-pdf me-1"></i>Export as PDF</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item rounded-1"><i
+                                    class="ti ti-file-type-xls me-1"></i>Export as Excel </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="input-icon w-120 position-relative mb-2">
+                <span class="input-icon-addon">
+                    <i class="ti ti-calendar text-gray-9"></i>
+                </span>
+                <input type="text" class="form-control datetimepicker" value="15 Apr 2025">
+            </div>
+            <div class="ms-2 head-icons">
+                <a href="javascript:void(0);" class="" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-original-title="Collapse" id="collapse-header">
+                    <i class="ti ti-chevrons-up"></i>
+                </a>
+            </div>
+        </div>
     </div>
-    <!-- END: Top Bar -->
-    <div class="grid grid-cols-12 gap-6" id="App" v-cloak>
-        <div class="col-span-12" :class="allPendingPatrols.length > 0 ? '2xl:col-span-8' : '2xl:col-span-12'">
-            <div class="grid grid-cols-12 gap-6">
-                <!-- BEGIN: Official Store -->
-                <div class="col-span-12 mt-6 xl:col-span-12">
-                    <div class="intro-y block h-10 items-center sm:flex">
-                        <h2 class="mr-5 truncate text-lg font-medium">Tableau de bord</h2>
-                        <!-- <div class="relative mt-3 text-slate-500 sm:ml-auto sm:mt-0">
-                            <i data-tw-merge="" data-lucide="map-pin"
-                                class="stroke-1.5 absolute inset-y-0 left-0 z-10 my-auto ml-3 h-4 w-4"></i>
-                            <input data-tw-merge="" type="text" placeholder="Filtrer par site..."
-                                class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 !box pl-10 sm:w-56">
-                        </div> -->
-                    </div>
-                    <div class="intro-y box mt-12 p-5 sm:mt-5">
+    <!-- /Breadcrumb -->
+
+    <div class="alert bg-secondary-transparent alert-dismissible fade show mb-4">
+        Your Leave Request on“24th April 2024”has been Approved!!!
+        <button type="button" class="btn-close fs-14" data-bs-dismiss="alert" aria-label="Close"><i
+                class="ti ti-x"></i></button>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xl-4 d-flex">
+            <div class="card position-relative flex-fill">
+                <div class="card-header bg-dark">
+                    <div class="d-flex align-items-center">
+                        <span
+                            class="avatar avatar-lg avatar-rounded border border-white border-2 flex-shrink-0 me-2">
+                            <img src="assets/img/users/user-01.jpg" alt="Img">
+                        </span>
                         <div>
-                            La cartographie de tous les sites qui utilisent la plateforme salama.
+                            <h5 class="text-white mb-1">Stephan Peralt</h5>
+                            <div class="d-flex align-items-center">
+                                <p class="text-white fs-12 mb-0">Senior Product Designer</p>
+                                <span class="mx-1"><i class="ti ti-point-filled text-primary"></i></span>
+                                <p class="fs-12">UI/UX Design</p>
+                            </div>
                         </div>
-                        <div data-lat="-6.2425342" data-long="106.8626478" data-sources=""
-                            class="main-leaflet leaflet z-0 [&_.leaflet-tile-pane]:contrast-105 [&_.leaflet-tile-pane]:grayscale [&_.leaflet-tile-pane]:dark:contrast-[.8] [&_.leaflet-tile-pane]:dark:invert mt-5 rounded-md bg-slate-200" style="height: 100vh;">
+                    </div>
+                    <a href="#" class="btn btn-icon btn-sm text-white rounded-circle edit-top"><i
+                            class="ti ti-edit"></i></a>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <span class="d-block mb-1 fs-13">Phone Number</span>
+                        <p class="text-gray-9">+1 324 3453 545</p>
+                    </div>
+                    <div class="mb-3">
+                        <span class="d-block mb-1 fs-13">Email Address</span>
+                        <p class="text-gray-9"><a href="https://smarthr.co.in/cdn-cgi/l/email-protection"
+                                class="__cf_email__"
+                                data-cfemail="64371001140116000155565024011c05091408014a070b09">[email&#160;protected]</a>
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <span class="d-block mb-1 fs-13">Report Office</span>
+                        <p class="text-gray-9">Doglas Martini</p>
+                    </div>
+                    <div>
+                        <span class="d-block mb-1 fs-13">Joined on</span>
+                        <p class="text-gray-9">15 Jan 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                        <h5>Leave Details</h5>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);"
+                                class="btn btn-white border btn-sm d-inline-flex align-items-center"
+                                data-bs-toggle="dropdown">
+                                <i class="ti ti-calendar me-1"></i>2024
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end p-3">
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2024</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2023</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2022</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <!-- END: Official Store -->
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="mb-3">
+                                    <p class="d-flex align-items-center"><i
+                                            class="ti ti-circle-filled fs-8 text-dark me-1"></i>
+                                        <span class="text-gray-9 fw-semibold me-1">1254</span>
+                                        on time
+                                    </p>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="d-flex align-items-center"><i
+                                            class="ti ti-circle-filled fs-8 text-success me-1"></i>
+                                        <span class="text-gray-9 fw-semibold me-1">32</span>
+                                        Late Attendance
+                                    </p>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="d-flex align-items-center"><i
+                                            class="ti ti-circle-filled fs-8 text-primary me-1"></i>
+                                        <span class="text-gray-9 fw-semibold me-1">658</span>
+                                        Work From Home
+                                    </p>
+                                </div>
+                                <div class="mb-3">
+                                    <p class="d-flex align-items-center"><i
+                                            class="ti ti-circle-filled fs-8 text-danger me-1"></i>
+                                        <span class="text-gray-9 fw-semibold me-1">14</span>
+                                        Absent
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="d-flex align-items-center"><i
+                                            class="ti ti-circle-filled fs-8 text-warning me-1"></i>
+                                        <span class="text-gray-9 fw-semibold me-1">68</span>
+                                        Sick Leave
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 d-flex justify-content-md-end">
+                                <div id="leaves_chart"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="todo1">
+                                <label class="form-check-label" for="todo1">Better than <span
+                                        class="text-gray-9">85%</span> of Employees</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-span-12 2xl:col-span-4" v-if="allPendingPatrols.length > 0">
-            <div class="-mb-10 pb-10 2xl:border-l">
-                <div class="grid grid-cols-12 gap-x-6 gap-y-6 2xl:gap-x-0 2xl:pl-6">
-                    <!-- BEGIN: Transactions -->
-                    <div class="col-span-12 mt-3 md:col-span-6 xl:col-span-4 2xl:col-span-12 2xl:mt-8">
-                        <div class="intro-x flex h-10 items-center">
-                            <h2 class="mr-5 truncate text-lg font-medium">Patrouilles en cours</h2>
+        <div class="col-xl-3 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                        <h5>Leave Details</h5>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);"
+                                class="btn btn-white border btn-sm d-inline-flex align-items-center"
+                                data-bs-toggle="dropdown">
+                                <i class="ti ti-calendar me-1"></i>2024
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end p-3">
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2024</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2023</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2022</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="mt-5">
-                            <div class="intro-x" v-for="(data,i) in patrolPendings" :key="i" :data-id="data.id" @click.prevent="selectedPatrol = data; getPatrolDetailMap();" data-tw-toggle="modal" data-tw-target="#patrol-view-modal" >
-                                <div class="box zoom-in mb-3 flex items-center px-3 py-3">
-                                    <div class="image-fit h-10 w-10 flex-none overflow-hidden rounded-lg">
-                                        <img src="{{ asset("assets/images/patrol.gif") }}"
-                                            alt="illustration">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <span class="d-block mb-1">Total Leaves</span>
+                                <h4>16</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <span class="d-block mb-1">Taken</span>
+                                <h4>10</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <span class="d-block mb-1">Absent</span>
+                                <h4>2</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <span class="d-block mb-1">Request</span>
+                                <h4>0</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <span class="d-block mb-1">Worked Days</span>
+                                <h4>240</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-4">
+                                <span class="d-block mb-1">Loss of Pay</span>
+                                <h4>2</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div>
+                                <a href="#" class="btn btn-dark w-100" data-bs-toggle="modal"
+                                    data-bs-target="#add_leaves">Apply New Leave</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xl-4 d-flex">
+            <div class="card flex-fill border-primary attendance-bg">
+                <div class="card-body">
+                    <div class="mb-4 text-center">
+                        <h6 class="fw-medium text-gray-5 mb-1">Attendance</h6>
+                        <h4>08:35 AM, 11 Mar 2025</h4>
+                    </div>
+                    <div class="attendance-circle-progress attendance-progress mx-auto mb-3"
+                        data-value='65'>
+                        <span class="progress-left">
+                            <span class="progress-bar border-success"></span>
+                        </span>
+                        <span class="progress-right">
+                            <span class="progress-bar border-success"></span>
+                        </span>
+                        <div class="total-work-hours text-center w-100">
+                            <span class="fs-13 d-block mb-1">Total Hours</span>
+                            <h6>5:45:32</h6>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="badge badge-dark badge-md mb-3">Production : 3.45 hrs</div>
+                        <h6 class="fw-medium d-flex align-items-center justify-content-center mb-4">
+                            <i class="ti ti-fingerprint text-primary me-1"></i>
+                            Punch In at 10.00 AM
+                        </h6>
+                        <a href="#" class="btn btn-primary w-100">Punch Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8 d-flex">
+            <div class="row flex-fill">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="border-bottom mb-3 pb-2">
+                                <span class="avatar avatar-sm bg-primary mb-2"><i
+                                        class="ti ti-clock-stop"></i></span>
+                                <h2 class="mb-2">8.36 / <span class="fs-20 text-gray-5"> 9</span></h2>
+                                <p class="fw-medium text-truncate">Total Hours Today</p>
+                            </div>
+                            <div>
+                                <p class="d-flex align-items-center fs-13">
+                                    <span
+                                        class="avatar avatar-xs rounded-circle bg-success flex-shrink-0 me-2">
+                                        <i class="ti ti-arrow-up fs-12"></i>
+                                    </span>
+                                    <span>5% This Week</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="border-bottom mb-3 pb-2">
+                                <span class="avatar avatar-sm bg-dark mb-2"><i
+                                        class="ti ti-clock-up"></i></span>
+                                <h2 class="mb-2">10 / <span class="fs-20 text-gray-5"> 40</span></h2>
+                                <p class="fw-medium text-truncate">Total Hours Week</p>
+                            </div>
+                            <div>
+                                <p class="d-flex align-items-center fs-13">
+                                    <span
+                                        class="avatar avatar-xs rounded-circle bg-success flex-shrink-0 me-2">
+                                        <i class="ti ti-arrow-up fs-12"></i>
+                                    </span>
+                                    <span>7% Last Week</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="border-bottom mb-3 pb-2">
+                                <span class="avatar avatar-sm bg-info mb-2"><i
+                                        class="ti ti-calendar-up"></i></span>
+                                <h2 class="mb-2">75 / <span class="fs-20 text-gray-5"> 98</span></h2>
+                                <p class="fw-medium text-truncate">Total Hours Month</p>
+                            </div>
+                            <div>
+                                <p class="d-flex align-items-center fs-13 text-truncate">
+                                    <span
+                                        class="avatar avatar-xs rounded-circle bg-danger flex-shrink-0 me-2">
+                                        <i class="ti ti-arrow-down fs-12"></i>
+                                    </span>
+                                    <span>8% Last Month</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="border-bottom mb-3 pb-2">
+                                <span class="avatar avatar-sm bg-pink mb-2"><i
+                                        class="ti ti-calendar-star"></i></span>
+                                <h2 class="mb-2">16 / <span class="fs-20 text-gray-5"> 28</span></h2>
+                                <p class="fw-medium text-truncate">Overtime this Month</p>
+                            </div>
+                            <div>
+                                <p class="d-flex align-items-center fs-13 text-truncate">
+                                    <span
+                                        class="avatar avatar-xs rounded-circle bg-danger flex-shrink-0 me-2">
+                                        <i class="ti ti-arrow-down fs-12"></i>
+                                    </span>
+                                    <span>6% Last Month</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-3">
+                                    <div class="mb-4">
+                                        <p class="d-flex align-items-center mb-1"><i
+                                                class="ti ti-point-filled text-dark-transparent me-1"></i>Total
+                                            Working hours</p>
+                                        <h3>12h 36m</h3>
                                     </div>
-                                    <div class="ml-4 mr-auto">
-                                        <div class="font-extrabold">@{{data.site.name}}</div>
-                                        <div class="mt-0.5 text-xs text-slate-500">
-                                            @{{data.agent.matricule }} | @{{data.agent.fullname}}
-                                        </div>
+                                </div>
+                                <div class="col-xl-3">
+                                    <div class="mb-4">
+                                        <p class="d-flex align-items-center mb-1"><i
+                                                class="ti ti-point-filled text-success me-1"></i>Productive
+                                            Hours</p>
+                                        <h3>08h 36m</h3>
                                     </div>
-                                    <div v-if="data.scans">
-                                        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white group-hover:bg-slate-100">
-                                           +@{{ data.scans.length }}
-                                        </span>
+                                </div>
+                                <div class="col-xl-3">
+                                    <div class="mb-4">
+                                        <p class="d-flex align-items-center mb-1"><i
+                                                class="ti ti-point-filled text-warning me-1"></i>Break hours
+                                        </p>
+                                        <h3>22m 15s</h3>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3">
+                                    <div class="mb-4">
+                                        <p class="d-flex align-items-center mb-1"><i
+                                                class="ti ti-point-filled text-info me-1"></i>Overtime</p>
+                                        <h3>02h 15m</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="progress bg-transparent-dark mb-3" style="height: 24px;">
+                                        <div class="progress-bar bg-white rounded" role="progressbar"
+                                            style="width: 18%;"></div>
+                                        <div class="progress-bar bg-success rounded me-2" role="progressbar"
+                                            style="width: 18%;"></div>
+                                        <div class="progress-bar bg-warning rounded me-2" role="progressbar"
+                                            style="width: 5%;"></div>
+                                        <div class="progress-bar bg-success rounded me-2" role="progressbar"
+                                            style="width: 28%;"></div>
+                                        <div class="progress-bar bg-warning rounded me-2" role="progressbar"
+                                            style="width: 17%;"></div>
+                                        <div class="progress-bar bg-success rounded me-2" role="progressbar"
+                                            style="width: 22%;"></div>
+                                        <div class="progress-bar bg-warning rounded me-2" role="progressbar"
+                                            style="width: 5%;"></div>
+                                        <div class="progress-bar bg-info rounded me-2" role="progressbar"
+                                            style="width: 3%;"></div>
+                                        <div class="progress-bar bg-info rounded" role="progressbar"
+                                            style="width: 2%;"></div>
+                                        <div class="progress-bar bg-white rounded" role="progressbar"
+                                            style="width: 18%;"></div>
+                                    </div>
+
+                                </div>
+                                <div class="co-md-12">
+                                    <div
+                                        class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                                        <span class="fs-10">06:00</span>
+                                        <span class="fs-10">07:00</span>
+                                        <span class="fs-10">08:00</span>
+                                        <span class="fs-10">09:00</span>
+                                        <span class="fs-10">10:00</span>
+                                        <span class="fs-10">11:00</span>
+                                        <span class="fs-10">12:00</span>
+                                        <span class="fs-10">01:00</span>
+                                        <span class="fs-10">02:00</span>
+                                        <span class="fs-10">03:00</span>
+                                        <span class="fs-10">04:00</span>
+                                        <span class="fs-10">05:00</span>
+                                        <span class="fs-10">06:00</span>
+                                        <span class="fs-10">07:00</span>
+                                        <span class="fs-10">08:00</span>
+                                        <span class="fs-10">09:00</span>
+                                        <span class="fs-10">10:00</span>
+                                        <span class="fs-10">11:00</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- END: Transactions -->
                 </div>
             </div>
         </div>
-        <div
-            data-tw-backdrop=""
-            aria-hidden="true"
-            tabindex="-1"
-            id="patrol-view-modal" class="modal group bg-black/60 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.4s]">
-            <div
-                data-tw-merge
-                class="form-site w-[25%] mx-auto bg-white relative rounded-md shadow-md transition-[margin-top,transform] duration-[0.4s,0.3s] -mt-16 group-[.show]:mt-16 group-[.modal-static]:scale-[1.05] dark:bg-darkmode-600 sm:w-[600px]">
-                <div
-                    class="flex items-center px-5 py-3 border-b border-slate-200/60 dark:border-darkmode-400">
-                    <h2 class="mr-auto text-base font-extrabold uppercase font-extrabold text-blue-500" v-if="selectedPatrol">
-                        Patrouille en cours | site @{{ selectedPatrol.site.name }}
-                    </h2>
-                    <button id="btn-reset"
-                        data-tw-merge
-                        data-tw-dismiss="modal"
-                        class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed border-secondary text-slate-500 dark:border-darkmode-100/40 dark:text-slate-300 [&:hover:not(:disabled)]:bg-secondary/20 [&:hover:not(:disabled)]:dark:bg-darkmode-100/10 hidden sm:flex hidden sm:flex"><i
-                            data-tw-merge
-                            data-lucide="x"
-                            class="stroke-1.5 h-4 w-4"></i>
-                    </button>
-                </div>
+    </div>
 
-                <div data-lat="-6.2425342" data-long="106.8626478" data-sources="" 
-                    class="detail-leaflet leaflet z-0 [&_.leaflet-tile-pane]:contrast-105 [&_.leaflet-tile-pane]:grayscale [&_.leaflet-tile-pane]:dark:contrast-[.8] [&_.leaflet-tile-pane]:dark:invert mt-5 ml-5 mr-5 mb-5 rounded-md bg-slate-200" style="height: 320px;">
+
+    <div class="row">
+        <div class="col-xl-6 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                        <h5>Projects</h5>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);"
+                                class="btn btn-white border-0 dropdown-toggle border btn-sm d-inline-flex align-items-center"
+                                data-bs-toggle="dropdown">
+                                Ongoing Projects
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end p-3">
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">All
+                                        Projects</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Ongoing
+                                        Projects</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-               
-                <div
-                    class="px-5 py-3 text-right border-t border-slate-200/60 dark:border-darkmode-400"><button
-                        data-tw-merge
-                        data-tw-dismiss="modal" type="button" class="transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed border-secondary text-slate-500 dark:border-darkmode-100/40 dark:text-slate-300 [&:hover:not(:disabled)]:bg-secondary/20 [&:hover:not(:disabled)]:dark:bg-darkmode-100/10 mr-1 w-20 mr-1 w-20">Fermer</button>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4 shadow-none mb-md-0">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <h6>Office Management</h6>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);"
+                                                class="d-inline-flex align-items-center"
+                                                data-bs-toggle="dropdown">
+                                                <i class="ti ti-dots-vertical"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end p-3">
+                                                <li>
+                                                    <a href="javascript:void(0);"
+                                                        class="dropdown-item rounded-1"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#edit_task"><i
+                                                            class="ti ti-edit me-2"></i>Edit</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);"
+                                                        class="dropdown-item rounded-1"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#delete_modal"><i
+                                                            class="ti ti-trash me-2"></i>Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <a href="javascript:void(0);" class="avatar">
+                                                <img src="assets/img/users/user-32.jpg"
+                                                    class="img-fluid rounded-circle" alt="img">
+                                            </a>
+                                            <div class="ms-2">
+                                                <h6 class="fw-normal"><a href="javascript:void(0);">Anthony
+                                                        Lewis</a></h6>
+                                                <span class="fs-13 d-block">Project Leader</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <a href="javascript:void(0);"
+                                                class="avatar bg-soft-primary rounded-circle">
+                                                <i class="ti ti-calendar text-primary fs-16"></i>
+                                            </a>
+                                            <div class="ms-2">
+                                                <h6 class="fw-normal">14 Jan 2024</h6>
+                                                <span class="fs-13 d-block">Deadline</span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="d-flex align-items-center justify-content-between bg-transparent-light border border-dashed rounded p-2 mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <span
+                                                    class="avatar avatar-sm bg-success-transparent rounded-circle me-1"><i
+                                                        class="ti ti-checklist fs-16"></i></span>
+                                                <p>Tasks : <span class="text-gray-9">6 </span> /10</p>
+                                            </div>
+                                            <div class="avatar-list-stacked avatar-group-sm">
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-06.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-07.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-08.jpg" alt="img">
+                                                </span>
+                                                <a class="avatar bg-primary avatar-rounded text-fixed-white fs-12 fw-medium"
+                                                    href="javascript:void(0);">
+                                                    +2
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="bg-soft-secondary p-2 rounded d-flex align-items-center justify-content-between">
+                                            <p class="text-secondary mb-0 text-truncate">Time Spent</p>
+                                            <h5 class="text-secondary text-truncate">65/120 <span
+                                                    class="fs-14 fw-normal">Hrs</span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card shadow-none mb-0">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <h6>Office Management</h6>
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0);"
+                                                class="d-inline-flex align-items-center"
+                                                data-bs-toggle="dropdown">
+                                                <i class="ti ti-dots-vertical"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end p-3">
+                                                <li>
+                                                    <a href="javascript:void(0);"
+                                                        class="dropdown-item rounded-1"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#edit_task"><i
+                                                            class="ti ti-edit me-2"></i>Edit</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);"
+                                                        class="dropdown-item rounded-1"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#delete_modal"><i
+                                                            class="ti ti-trash me-2"></i>Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <a href="javascript:void(0);" class="avatar">
+                                                <img src="assets/img/users/user-33.jpg"
+                                                    class="img-fluid rounded-circle" alt="img">
+                                            </a>
+                                            <div class="ms-2">
+                                                <h6 class="fw-normal"><a href="javascript:void(0);">Anthony
+                                                        Lewis</a></h6>
+                                                <span class="fs-13 d-block">Project Leader</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <a href="javascript:void(0);"
+                                                class="avatar bg-soft-primary rounded-circle">
+                                                <i class="ti ti-calendar text-primary fs-16"></i>
+                                            </a>
+                                            <div class="ms-2">
+                                                <h6 class="fw-normal">14 Jan 2024</h6>
+                                                <span class="fs-13 d-block">Deadline</span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="d-flex align-items-center justify-content-between bg-transparent-light border border-dashed rounded p-2 mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <span
+                                                    class="avatar avatar-sm bg-success-transparent rounded-circle me-1"><i
+                                                        class="ti ti-checklist fs-16"></i></span>
+                                                <p>Tasks : <span class="text-gray-9">6 </span> /10</p>
+                                            </div>
+                                            <div class="avatar-list-stacked avatar-group-sm">
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-06.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-07.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-08.jpg" alt="img">
+                                                </span>
+                                                <a class="avatar bg-primary avatar-rounded text-fixed-white fs-12 fw-medium"
+                                                    href="javascript:void(0);">
+                                                    +2
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="bg-soft-secondary p-2 rounded d-flex align-items-center justify-content-between">
+                                            <p class="text-secondary mb-0 text-truncate">Time Spent</p>
+                                            <h5 class="text-secondary text-truncate">65/120 <span
+                                                    class="fs-14 fw-normal">Hrs</span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </d>
+            </div>
+        </div>
+        <div class="col-xl-6 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                        <h5>Tasks</h5>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);"
+                                class="btn btn-white border-0 dropdown-toggle border btn-sm d-inline-flex align-items-center"
+                                data-bs-toggle="dropdown">
+                                All Projects
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end p-3">
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">All
+                                        Projects</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Ongoing
+                                        Projects</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item border rounded mb-3 p-2">
+                            <div class="row align-items-center row-gap-3">
+                                <div class="col-md-8">
+                                    <div class="todo-inbox-check d-flex align-items-center">
+                                        <span><i class="ti ti-grid-dots me-2"></i></span>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                        <span class="me-2 d-flex align-items-center rating-select"><i
+                                                class="ti ti-star-filled filled"></i></span>
+                                        <div class="strike-info">
+                                            <h4 class="fs-14 text-truncate">Patient appointment booking</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="d-flex align-items-center justify-content-md-end flex-wrap row-gap-3">
+                                        <span
+                                            class="badge bg-soft-pink d-inline-flex align-items-center me-2"><i
+                                                class="fas fa-circle fs-6 me-1"></i>Onhold</span>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-list-stacked avatar-group-sm">
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-13.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-14.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-15.jpg" alt="img">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item border rounded mb-3 p-2">
+                            <div class="row align-items-center row-gap-3">
+                                <div class="col-md-8">
+                                    <div class="todo-inbox-check d-flex align-items-center">
+                                        <span><i class="ti ti-grid-dots me-2"></i></span>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                        <span class="me-2 rating-select d-flex align-items-center"><i
+                                                class="ti ti-star"></i></span>
+                                        <div class="strike-info">
+                                            <h4 class="fs-14 text-truncate">Appointment booking with payment
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="d-flex align-items-center justify-content-md-end flex-wrap row-gap-3">
+                                        <span
+                                            class="badge bg-transparent-purple d-flex align-items-center me-2"><i
+                                                class="fas fa-circle fs-6 me-1"></i>Inprogress</span>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-list-stacked avatar-group-sm">
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-20.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-21.jpg" alt="img">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item border rounded mb-3 p-2">
+                            <div class="row align-items-center row-gap-3">
+                                <div class="col-md-8">
+                                    <div class="todo-inbox-check d-flex align-items-center">
+                                        <span><i class="ti ti-grid-dots me-2"></i></span>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                        <span class="me-2 rating-select d-flex align-items-center"><i
+                                                class="ti ti-star"></i></span>
+                                        <div class="strike-info">
+                                            <h4 class="fs-14 text-truncate">Patient and Doctor video
+                                                conferencing</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="d-flex align-items-center justify-content-md-end flex-wrap row-gap-3">
+                                        <span class="badge badge-soft-success align-items-center me-2"><i
+                                                class="fas fa-circle fs-6 me-1"></i>Completed</span>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-list-stacked avatar-group-sm">
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-28.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-29.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-24.jpg" alt="img">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item border rounded mb-3 p-2">
+                            <div class="row align-items-center row-gap-3">
+                                <div class="col-md-8">
+                                    <div
+                                        class="todo-inbox-check d-flex align-items-center todo-strike-content">
+                                        <span><i class="ti ti-grid-dots me-2"></i></span>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked="">
+                                        </div>
+                                        <span class="me-2 rating-select d-flex align-items-center"><i
+                                                class="ti ti-star"></i></span>
+                                        <div class="strike-info">
+                                            <h4 class="fs-14 text-truncate">Private chat module</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="d-flex align-items-center justify-content-md-end flex-wrap row-gap-3">
+                                        <span
+                                            class="badge badge-secondary-transparent d-flex align-items-center me-2"><i
+                                                class="fas fa-circle fs-6 me-1"></i>Pending</span>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-list-stacked avatar-group-sm">
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-23.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-24.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-25.jpg" alt="img">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item border rounded p-2">
+                            <div class="row align-items-center row-gap-3">
+                                <div class="col-md-8">
+                                    <div class="todo-inbox-check d-flex align-items-center">
+                                        <span><i class="ti ti-grid-dots me-2"></i></span>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                        <span class="me-2 rating-select d-flex align-items-center"><i
+                                                class="ti ti-star"></i></span>
+                                        <div class="strike-info">
+                                            <h4 class="fs-14 text-truncate">Go-Live and Post-Implementation
+                                                Support</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div
+                                        class="d-flex align-items-center justify-content-md-end flex-wrap row-gap-3">
+                                        <span
+                                            class="badge bg-transparent-purple d-flex align-items-center me-2"><i
+                                                class="fas fa-circle fs-6 me-1"></i>Inprogress</span>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-list-stacked avatar-group-sm">
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-28.jpg" alt="img">
+                                                </span>
+                                                <span class="avatar avatar-rounded">
+                                                    <img class="border border-white"
+                                                        src="assets/img/profiles/avatar-29.jpg" alt="img">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <x-dom-loader></x-dom-loader>
+
+
+    <div class="row">
+        <div class="col-xl-5 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                        <h5>Performance</h5>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);"
+                                class="btn btn-white border btn-sm d-inline-flex align-items-center"
+                                data-bs-toggle="dropdown">
+                                <i class="ti ti-calendar me-1"></i>2024
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end p-3">
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2024</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2023</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2022</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="bg-light d-flex align-items-center rounded p-2">
+                            <h3 class="me-2">98%</h3>
+                            <span
+                                class="badge badge-outline-success bg-success-transparent rounded-pill me-1">12%</span>
+                            <span>vs last years</span>
+                        </div>
+                        <div id="performance_chart2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                        <h5>My Skills</h5>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);"
+                                class="btn btn-white border btn-sm d-inline-flex align-items-center"
+                                data-bs-toggle="dropdown">
+                                <i class="ti ti-calendar me-1"></i>2024
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end p-3">
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2024</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2023</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">2022</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div class="border border-dashed bg-transparent-light rounded p-2 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="d-block border border-2 h-12 border-primary rounded-5 me-2"></span>
+                                    <div>
+                                        <h6 class="fw-medium mb-1">Figma</h6>
+                                        <p>Updated : 15 May 2025</p>
+                                    </div>
+                                </div>
+                                <div class="circle-progress circle-progress-md" data-value='95'>
+                                    <span class="progress-left">
+                                        <span class="progress-bar border-primary"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar border-primary"></span>
+                                    </span>
+                                    <div class="progress-value">95%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border border-dashed bg-transparent-light rounded p-2 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="d-block border border-2 h-12 border-success rounded-5 me-2"></span>
+                                    <div>
+                                        <h6 class="fw-medium mb-1">HTML</h6>
+                                        <p>Updated : 12 May 2025</p>
+                                    </div>
+                                </div>
+                                <div class="circle-progress circle-progress-md" data-value='85'>
+                                    <span class="progress-left">
+                                        <span class="progress-bar border-success"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar border-success"></span>
+                                    </span>
+                                    <div class="progress-value">85%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border border-dashed bg-transparent-light rounded p-2 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="d-block border border-2 h-12 border-purple rounded-5 me-2"></span>
+                                    <div>
+                                        <h6 class="fw-medium mb-1">CSS</h6>
+                                        <p>Updated : 12 May 2025</p>
+                                    </div>
+                                </div>
+                                <div class="circle-progress circle-progress-md" data-value='70'>
+                                    <span class="progress-left">
+                                        <span class="progress-bar border-purple"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar border-purple"></span>
+                                    </span>
+                                    <div class="progress-value">70%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border border-dashed bg-transparent-light rounded p-2 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="d-block border border-2 h-12 border-info rounded-5 me-2"></span>
+                                    <div>
+                                        <h6 class="fw-medium mb-1">Wordpress</h6>
+                                        <p>Updated : 15 May 2025</p>
+                                    </div>
+                                </div>
+                                <div class="circle-progress circle-progress-md" data-value='61'>
+                                    <span class="progress-left">
+                                        <span class="progress-bar border-info"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar border-info"></span>
+                                    </span>
+                                    <div class="progress-value">61%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border border-dashed bg-transparent-light rounded p-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span
+                                        class="d-block border border-2 h-12 border-dark rounded-5 me-2"></span>
+                                    <div>
+                                        <h6 class="fw-medium mb-1">Javascript</h6>
+                                        <p>Updated : 13 May 2025</p>
+                                    </div>
+                                </div>
+                                <div class="circle-progress circle-progress-md" data-value='58'>
+                                    <span class="progress-left">
+                                        <span class="progress-bar border-dark"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar border-dark"></span>
+                                    </span>
+                                    <div class="progress-value">58%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 d-flex">
+            <div class="flex-fill">
+                <div class="card card-bg-5 bg-dark mb-3">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5 class="text-white mb-4">Team Birthday</h5>
+                            <span class="avatar avatar-xl avatar-rounded mb-2">
+                                <img src="assets/img/users/user-35.jpg" alt="Img">
+                            </span>
+                            <div class="mb-3">
+                                <h6 class="text-white fw-medium mb-1">Andrew Jermia</h6>
+                                <p>IOS Developer</p>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-primary">Send Wishes</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-secondary mb-3">
+                    <div class="card-body d-flex align-items-center justify-content-between p-3">
+                        <div>
+                            <h5 class="text-white mb-1">Leave Policy</h5>
+                            <p class="text-white">Last Updated : Today</p>
+                        </div>
+                        <a href="#" class="btn btn-white btn-sm px-3">View All</a>
+                    </div>
+                </div>
+                <div class="card bg-warning">
+                    <div class="card-body d-flex align-items-center justify-content-between p-3">
+                        <div>
+                            <h5 class="mb-1">Next Holiday</h5>
+                            <p class="text-gray-9">Diwali, 15 Sep 2025</p>
+                        </div>
+                        <a href="holidays.html" class="btn btn-white btn-sm px-3">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="row">
+        <div class="col-xl-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                        <h5>Team Members</h5>
+                        <div>
+                            <a href="#" class="btn btn-light btn-sm">View All</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                                <img src="assets/img/users/user-27.jpg"
+                                    class="rounded-circle border border-2" alt="img">
+                            </a>
+                            <div class="ms-2">
+                                <h6 class="fs-14 fw-medium text-truncate mb-1"><a href="#">Alexander
+                                        Jermai</a></h6>
+                                <p class="fs-13">UI/UX Designer</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-phone fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-mail-bolt fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm"><i
+                                    class="ti ti-brand-hipchat fs-16"></i></a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                                <img src="assets/img/users/user-42.jpg"
+                                    class="rounded-circle border border-2" alt="img">
+                            </a>
+                            <div class="ms-2">
+                                <h6 class="fs-14 fw-medium text-truncate mb-1"><a href="#">Doglas
+                                        Martini</a></h6>
+                                <p class="fs-13">Product Designer</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-phone fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-mail-bolt fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm"><i
+                                    class="ti ti-brand-hipchat fs-16"></i></a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                                <img src="assets/img/users/user-43.jpg"
+                                    class="rounded-circle border border-2" alt="img">
+                            </a>
+                            <div class="ms-2">
+                                <h6 class="fs-14 fw-medium text-truncate mb-1"><a href="#">Daniel
+                                        Esbella</a></h6>
+                                <p class="fs-13">Project Manager</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-phone fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-mail-bolt fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm"><i
+                                    class="ti ti-brand-hipchat fs-16"></i></a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                                <img src="assets/img/users/user-11.jpg"
+                                    class="rounded-circle border border-2" alt="img">
+                            </a>
+                            <div class="ms-2">
+                                <h6 class="fs-14 fw-medium text-truncate mb-1"><a href="#">Daniel
+                                        Esbella</a></h6>
+                                <p class="fs-13">Team Lead</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-phone fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-mail-bolt fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm"><i
+                                    class="ti ti-brand-hipchat fs-16"></i></a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                                <img src="assets/img/users/user-44.jpg"
+                                    class="rounded-circle border border-2" alt="img">
+                            </a>
+                            <div class="ms-2">
+                                <h6 class="fs-14 fw-medium text-truncate mb-1"><a href="#">Stephan
+                                        Peralt</a></h6>
+                                <p class="fs-13">Team Lead</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-phone fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-mail-bolt fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm"><i
+                                    class="ti ti-brand-hipchat fs-16"></i></a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                                <img src="assets/img/users/user-54.jpg"
+                                    class="rounded-circle border border-2" alt="img">
+                            </a>
+                            <div class="ms-2">
+                                <h6 class="fs-14 fw-medium text-truncate mb-1"><a href="#">Andrew Jermia</a>
+                                </h6>
+                                <p class="fs-13">Project Lead</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-phone fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm me-2"><i
+                                    class="ti ti-mail-bolt fs-16"></i></a>
+                            <a href="#" class="btn btn-light btn-icon btn-sm"><i
+                                    class="ti ti-brand-hipchat fs-16"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                        <h5>Notifications</h5>
+                        <div>
+                            <a href="#" class="btn btn-light btn-sm">View All</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-start mb-4">
+                        <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                            <img src="assets/img/users/user-27.jpg" class="rounded-circle border border-2"
+                                alt="img">
+                        </a>
+                        <div class="ms-2">
+                            <h6 class="fs-14 fw-medium text-truncate mb-1">Lex Murphy requested access to
+                                UNIX </h6>
+                            <p class="fs-13 mb-2">Today at 9:42 AM</p>
+                            <div class="d-flex align-items-center">
+                                <a href="#" class="avatar avatar-sm border flex-shrink-0 me-2"><img
+                                        src="assets/img/social/pdf-icon.svg" class="w-auto h-auto"
+                                        alt="Img"></a>
+                                <h6 class="fw-normal"><a href="#">EY_review.pdf</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                            <img src="assets/img/users/user-28.jpg" class="rounded-circle border border-2"
+                                alt="img">
+                        </a>
+                        <div class="ms-2">
+                            <h6 class="fs-14 fw-medium text-truncate mb-1">Lex Murphy requested access to
+                                UNIX </h6>
+                            <p class="fs-13 mb-0">Today at 10:00 AM</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                            <img src="assets/img/users/user-29.jpg" class="rounded-circle border border-2"
+                                alt="img">
+                        </a>
+                        <div class="ms-2">
+                            <h6 class="fs-14 fw-medium text-truncate mb-1">Lex Murphy requested access to
+                                UNIX </h6>
+                            <p class="fs-13 mb-2">Today at 10:50 AM</p>
+                            <div class="d-flex align-items-center">
+                                <a href="#" class="btn btn-primary btn-sm me-2">Approve</a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Decline</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-4">
+                        <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                            <img src="assets/img/users/user-30.jpg" class="rounded-circle border border-2"
+                                alt="img">
+                        </a>
+                        <div class="ms-2">
+                            <h6 class="fs-14 fw-medium text-truncate mb-1">Lex Murphy requested access to
+                                UNIX </h6>
+                            <p class="fs-13 mb-0">Today at 12:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <a href="javascript:void(0);" class="avatar flex-shrink-0">
+                            <img src="assets/img/users/user-33.jpg" class="rounded-circle border border-2"
+                                alt="img">
+                        </a>
+                        <div class="ms-2">
+                            <h6 class="fs-14 fw-medium text-truncate mb-1">Lex Murphy requested access to
+                                UNIX </h6>
+                            <p class="fs-13 mb-0">Today at 05:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2">
+                        <h5>Meetings Schedule</h5>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);"
+                                class="btn btn-white border btn-sm d-inline-flex align-items-center"
+                                data-bs-toggle="dropdown">
+                                <i class="ti ti-calendar me-1"></i>Today
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end p-3">
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">Today</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">This
+                                        Month</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-item rounded-1">This
+                                        Year</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body schedule-timeline">
+                    <div class="d-flex align-items-start">
+                        <div class="d-flex align-items-center active-time">
+                            <span>09:25 AM</span>
+                            <span><i class="ti ti-point-filled text-primary fs-20"></i></span>
+                        </div>
+                        <div class="flex-fill ps-3 pb-4 timeline-flow">
+                            <div class="bg-light p-2 rounded">
+                                <p class="fw-medium text-gray-9 mb-1">Marketing Strategy Presentation</p>
+                                <span>Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="d-flex align-items-center active-time">
+                            <span>09:20 AM</span>
+                            <span><i class="ti ti-point-filled text-secondary fs-20"></i></span>
+                        </div>
+                        <div class="flex-fill ps-3 pb-4 timeline-flow">
+                            <div class="bg-light p-2 rounded">
+                                <p class="fw-medium text-gray-9 mb-1">Design Review Hospital, doctors
+                                    Management Project</p>
+                                <span>Review</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="d-flex align-items-center active-time">
+                            <span>09:18 AM</span>
+                            <span><i class="ti ti-point-filled text-warning fs-20"></i></span>
+                        </div>
+                        <div class="flex-fill ps-3 pb-4 timeline-flow">
+                            <div class="bg-light p-2 rounded">
+                                <p class="fw-medium text-gray-9 mb-1">Birthday Celebration of Employee</p>
+                                <span>Celebration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="d-flex align-items-center active-time">
+                            <span>09:10 AM</span>
+                            <span><i class="ti ti-point-filled text-success fs-20"></i></span>
+                        </div>
+                        <div class="flex-fill ps-3 timeline-flow">
+                            <div class="bg-light p-2 rounded">
+                                <p class="fw-medium text-gray-9 mb-1">Update of Project Flow</p>
+                                <span>Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 <!-- END: Content -->
 @endsection
 
-@push("scripts")
-<script type="module" src="{{ asset("assets/js/scripts/monitoring.js") }}"></script>
-
-@endpush
-
-@push("styles")
-<style>
-    .tooltip-red.leaflet-tooltip-top::before {
-        border-top-color: #dc2626 !important;
-        z-index: 2000;
-    }
-</style>
-@endpush

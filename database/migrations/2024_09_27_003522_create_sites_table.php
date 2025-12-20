@@ -26,7 +26,6 @@ return new class extends Migration
                 $table->string("client_fcm_token")->nullable();
                 $table->string("otp")->nullable();
                 $table->text("emails")->nullable();
-                $table->unsignedBigInteger("agency_id");
                 $table->unsignedBigInteger("secteur_id")->nullable();
                 $table->string("status")->default("actif");
                 $table->string("fcm_token")->nullable();

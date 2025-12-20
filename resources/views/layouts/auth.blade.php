@@ -1,38 +1,73 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html lang="en" class="light">
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<!-- Mirrored from smarthr.co.in/demo/html/template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Dec 2025 23:20:46 GMT -->
+
 <head>
-    <meta charset="utf-8">
-    <link href="dist/images/security.svg" rel="shortcut icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Salama">
-    <meta name="keywords" content="Rapid Tech Property">
-    <meta name="author" content="Gaston Delimond Dev">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<meta name="description" content="Smarthr - Bootstrap Admin Template">
+	<meta name="keywords" content="admin, estimates, bootstrap, business, html5, responsive, Projects">
+	<meta name="author" content="Dreams technologies - Bootstrap Admin Template">
+	<meta name="robots" content="noindex, nofollow">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Salama Plateforme</title>
-    <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" href="{{ asset("dist/css/vendors/toastify.css") }}">
-    <link rel="stylesheet" href="{{ asset("dist/css/vendors/highlight.css") }}">
-    <link rel="stylesheet" href="{{ asset("dist/css/vendors/tippy.css") }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
-    <!-- END: CSS Assets-->
+	<title>Mamba RH Auth</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+	<!-- Apple Touch Icon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<!-- Feather CSS -->
+	<link rel="stylesheet" href="assets/plugins/icons/feather/feather.css">
+
+	<!-- Tabler Icon CSS -->
+	<link rel="stylesheet" href="assets/plugins/tabler-icons/tabler-icons.min.css">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	@stack("styles")
+
 </head>
-<!-- BEGIN: JS Assets-->
-<body class="login">
-    @yield("content")
-    <!-- BEGIN: Js assets -->
-    <script src="{{ asset("dist/js/vendors/dom.js") }}"></script>
-    <script src="{{ asset("dist/js/vendors/tailwind-merge.js") }}"></script>
-    <script src="{{ asset("dist/js/vendors/toastify.js") }}"></script>
-    <script src="{{ asset("dist/js/vendors/lucide.js") }}"></script>
-    <script src="{{ asset("dist/js/vendors/modal.js") }}"></script>
-    <script src="{{ asset("dist/js/vendors/pristine.js") }}"></script>
-    <script src="{{ asset("dist/js/components/base/theme-color.js") }}"></script>
-    <script src="{{ asset("dist/js/components/base/lucide.js") }}"></script>
-    <script src="{{ asset('assets/js/libs/vue2.js') }}"></script>
-    @stack("scripts")
-    <!-- END: JS Assets-->
+
+<body class="bg-white">
+
+	<div id="global-loader" style="display: none;">
+		<div class="page-loader"></div>
+	</div>
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+		@yield('content')
+	</div>
+	<!-- /Main Wrapper -->
+
+	<!-- jQuery -->
+	<script src="assets/js/jquery-3.7.1.min.js"></script>
+
+	<!-- Bootstrap Core JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Feather Icon JS -->
+	<script src="assets/js/feather.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="assets/js/script.js"></script>
+
+	<script src="{{ asset('assets/js/vendor/vue2.js') }}"></script>
+
+	@stack("scripts")
+
 </body>
 
 </html>

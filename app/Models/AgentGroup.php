@@ -24,11 +24,6 @@ class AgentGroup extends Model
         return $this->belongsTo(PresenceHoraire::class, foreignKey:"horaire_id");
     }
 
-    public function planningCycles()
-    {
-        return $this->hasMany(GroupPlanningCycle::class);
-    }
-
     public function plannings()
     {
         return $this->hasMany(AgentGroupPlanning::class);
