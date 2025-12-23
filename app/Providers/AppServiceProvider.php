@@ -25,7 +25,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        DB::statement("SET time_zone = '+01:00'");
+        // Attempt to set DB time zone if DB is available. Wrap in try/catch so
+        // a misconfigured DB (cached .env or wrong credentials) doesn't break
+        // application bootstrap (useful during local development).
+        try {
+            DB::statement("SET time_zone = '+01:00'");
+        } catch (\Exception $e) {
+            // Log and continue booting — DB may be temporarily unavailable or
+            // configuration may need to be reloaded (php artisan config:clear).
+            report($e);
+        }
 
         Blade::directive('active', function ($routes) {
             return "<?php

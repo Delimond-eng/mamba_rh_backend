@@ -29,9 +29,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
+            // Load generated API routes (replaces routes/api.php to avoid parse issues)
             Route::middleware('api')
                 ->prefix('api')
-                ->group(base_path('routes/api.php'));
+                ->group(base_path('routes/api_generated.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));

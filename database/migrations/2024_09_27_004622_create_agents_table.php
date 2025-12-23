@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->string("matricule")->unique();
                 $table->string("photo")->nullable();
                 $table->string("fullname");
-                $table->string("password");
+                $table->string("password")->nullable();
                 $table->string("role")->default("guard");
                 $table->unsignedBigInteger("site_id")->nullable();
                 $table->unsignedBigInteger("groupe_id")->nullable();

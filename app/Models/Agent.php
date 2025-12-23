@@ -37,6 +37,7 @@ class Agent extends Model
         "password",
         "role",
         "site_id",
+        "service_id",
         "groupe_id",
         "status"
     ];
@@ -80,6 +81,13 @@ class Agent extends Model
         return $this->belongsTo(Site::class, foreignKey:"site_id",);
     }
 
+        /**
+         * Belongs to Service
+         */
+        public function service() : BelongsTo{
+            return $this->belongsTo(Service::class, foreignKey:"service_id");
+        }
+
     /**
      * Belongs to agency
      * @return BelongsTo
@@ -91,6 +99,16 @@ class Agent extends Model
     public function plannings()
     {
         return $this->hasMany(AgentGroupPlanning::class, "agent_id", "id");
+    }
+
+    public function agentInfo()
+    {
+        return $this->hasOne(\App\Models\AgentInfo::class, 'agent_id', 'id');
+    }
+
+    public function baremes()
+    {
+        return $this->hasMany(\App\Models\AgentBareme::class, 'agent_id', 'id');
     }
 
     public function currentAssignment()
