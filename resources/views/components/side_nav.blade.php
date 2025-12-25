@@ -1,548 +1,440 @@
- <!-- BEGIN: Side Menu -->
- <nav class="side-nav hidden w-[80px] overflow-x-hidden pb-16 pr-5 md:block xl:w-[230px]">
-    <a class="flex items-center pt-4 pl-5 intro-x" href="/">
-        <img class="w-10" src="dist/images/security.svg" alt="logo">
-        <span class="hidden ml-2 text-lg text-white xl:block font-bold"> Salama </span>
-    </a>
-    <div class="my-6 side-nav__divider"></div>
-    <ul>
-        {{-- TABLEAU DE BORD / PATROUILLES --}}
-        <li>
-            <a href="javascript:;" class="side-menu @active(['dashboard','global.view'])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="monitor" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Tableau de bord
-                    <div class="side-menu__sub-icon">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="/"
-                        class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Monitoring
-                        </div>
-                    </a>
-                </li>
-                <!-- <li>
-                    <a href="{{ url("/global.view") }}"
-                        class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                        Vue globale
-                        </div>
-                    </a>
-                </li>
-             -->
+<div class="sidebar" id="sidebar">
+	<!-- Logo -->
+    <div class="sidebar-logo">
+        <a href="/" class="logo logo-normal">
+            <img src="assets/img/logo.svg" alt="Logo">
+        </a>
+        <a href="/" class="logo-small">
+            <img src="assets/img/logo-small.svg" alt="Logo">
+        </a>
+        <a href="/" class="dark-logo">
+            <img src="assets/img/logo-white.svg" alt="Logo">
+        </a>
+    </div>
+    <!-- /Logo -->
+
+    <div class="modern-profile p-3 pb-0">
+        <div class="text-center rounded bg-light p-3 mb-4 user-profile">
+            <div class="avatar avatar-lg online mb-3">
+                <img src="assets/img/profiles/avatar-02.jpg" alt="Img" class="img-fluid rounded-circle">
+            </div>
+            <h6 class="fs-12 fw-normal mb-1">Adrian Herman</h6>
+            <p class="fs-10">System Admin</p>
+        </div>
+        <div class="sidebar-nav mb-3">
+            <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified bg-transparent"
+                role="tablist">
+                <li class="nav-item"><a class="nav-link active border-0" href="#">Menu</a></li>
+                <li class="nav-item"><a class="nav-link border-0" href="chat.html">Chats</a></li>
+                <li class="nav-item"><a class="nav-link border-0" href="email.html">Inbox</a></li>
             </ul>
-        </li>
+        </div>
+    </div>
 
-        {{-- RAPPORTS --}}
-        @can('rapports.view')
-        <li>
-            <a href="javascript:;" class="side-menu @active(['round.reports','reports.patrols' ])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="file" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                Rapports
-                    <div class="side-menu__sub-icon">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="{{ url('/round.reports') }}"
-                        class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                        Rapports des supervisions
-                        </div>
-                    </a>
-                </li>
-                @can("patrouilles.view")
-                <li>
-                    <a href="{{ url('/reports.patrols') }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Rapport rondes agents
-                        </div>
-                    </a>
-                </li>
-                @endcan
-            </ul>
-        </li>
-        @endcan
+    <div class="sidebar-header p-3 pb-0 pt-2">
+        <div class="text-center rounded bg-light p-2 mb-4 sidebar-profile d-flex align-items-center">
+            <div class="avatar avatar-md onlin">
+                <img src="assets/img/profiles/avatar-02.jpg" alt="Img" class="img-fluid rounded-circle">
+            </div>
+            <div class="text-start sidebar-profile-info ms-2">
+                <h6 class="fs-12 fw-normal mb-1">Adrian Herman</h6>
+                <p class="fs-10">System Admin</p>
+            </div>
+        </div>
+        <div class="input-group input-group-flat d-inline-flex mb-4">
+            <span class="input-icon-addon">
+                <i class="ti ti-search"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="Search in HRMS">
+            <span class="input-group-text">
+                <kbd>CTRL + / </kbd>
+            </span>
+        </div>
+        <div class="d-flex align-items-center justify-content-between menu-item mb-3">
+            <div class="me-3">
+                <a href="calendar.html" class="btn btn-menubar">
+                    <i class="ti ti-layout-grid-remove"></i>
+                </a>
+            </div>
+            <div class="me-3">
+                <a href="chat.html" class="btn btn-menubar position-relative">
+                    <i class="ti ti-brand-hipchat"></i>
+                    <span
+                        class="badge bg-info rounded-pill d-flex align-items-center justify-content-center header-badge">5</span>
+                </a>
+            </div>
+            <div class="me-3 notification-item">
+                <a href="activity.html" class="btn btn-menubar position-relative me-1">
+                    <i class="ti ti-bell"></i>
+                    <span class="notification-status-dot"></span>
+                </a>
+            </div>
+            <div class="me-0">
+                <a href="email.html" class="btn btn-menubar">
+                    <i class="ti ti-message"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
-        {{-- SITES --}}
-        @can('sites.view')
-        <li>
-            <a href="javascript:;" class="side-menu @active(['site.create.view', 'sites.list'])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="home" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Stations
-                    <div class="side-menu__sub-icon ">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                @can("sites.create")
-                <li>
-                    <a href="/site.create" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Création station
-                        </div>
-                    </a>
-                </li>
-                @endcan
-                <li>
-                    <a href="{{ url("/sites.list") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Liste des stations
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        @endcan
 
-        {{-- AGENTS --}}
-        @can('agents.view')
-        <li>
-            <a href="javascript:;" class="side-menu @active(['agent.histories.single', 'agent.create', 'agents.list', 'agents.history'])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="users" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Agents
-                    <div class="side-menu__sub-icon ">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                  </div>
-                </div>
-            </a>
-            <ul class="">
-                @can("agents.create")
-                <li>
-                    <a href="/agent.create" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Création agent
-                        </div>
-                    </a>
-                </li>
-                @endcan
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+
+                {{-- ================= MAIN MENU ================= --}}
+                @canany(['dashboard_admin.view', 'dashboard_rh.view', 'dashboard_agent.view'])
+                <li class="menu-title mt-3"><span>MAIN MENU</span></li>
 
                 <li>
-                    <a href="/agents.list" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Liste des agents
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="/agents.history" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Historique des agents
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        @endcan
-
-        {{-- PRESENCES --}}
-        @can('presences.view')
-        <li>
-            <a href="javascript:;" class="side-menu @active(['presence.horaires','reports.presences', 'agent.groupe', 'presence.planning' ])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="calendar" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Présences
-                    <div class="side-menu__sub-icon ">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="{{ url("/reports.presences") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Rapport des présences
-                        </div>
-                    </a>
-                </li>
-                @can("presences.create")
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Paramètres
-                            <div class="side-menu__sub-icon ">
-                                <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-5 h-5"></i>
-                            </div>
-                        </div>
-                    </a>
-                    @can("presences.create")
-                    <ul class="">
-                        <li>
-                            <a href="{{ url("/presence.horaires") }}" class="side-menu">
-                                <div class="side-menu__icon">
-                                    <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                                </div>
-                                <div class="side-menu__title">
-                                    Horaires
-                                </div>
+                    <ul>
+                        <li class="submenu">
+                            <a href="javascript:void(0);" class="@active(['dashboard'])">
+                                <i class="ti ti-smart-home"></i><span>Dashboard</span>
+                                <span class="badge badge-danger fs-10 fw-medium text-white p-1">Hot</span>
+                                <span class="menu-arrow"></span>
                             </a>
-                        </li>
-                        <li>
-                            <a href="{{ url("agent.groupe") }}" class="side-menu">
-                                <div class="side-menu__icon">
-                                    <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                                </div>
-                                <div class="side-menu__title">
-                                    Groupes
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/presence.plannings') }}" class="side-menu">
-                                <div class="side-menu__icon">
-                                    <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                                </div>
-                                <div class="side-menu__title">
-                                    Plannings rotatifs
-                                </div>
-                            </a>
+                            <ul>
+                                @can('dashboard_admin.view')
+                                <li><a href="/" class="@active(['dashboard'])">Dashboard Admin</a></li>
+                                @endcan
+                                @can('dashboard_rh.view')
+                                <li><a href="#">Dashboard RH</a></li>
+                                @endcan
+                                @can('dashboard_agent.view')
+                                <li><a href="#">Dashboard Agent</a></li>
+                                @endcan
+                            </ul>
                         </li>
                     </ul>
-                    @endcan
                 </li>
-                @endcan
+                @endcanany
+
+                {{-- ================= RESSOURCES HUMAINES ================= --}}
+                @canany([
+                    'agents.create','agents.view','services.view','baremes.view',
+                    'horaires.view','groupes.view','plannings.view','retards.view','absences.view',
+                    'sanctions.view','conges.view','heures.view','autorisations.view','paie_parametres.view',
+                    'separations.view','desertions.view'
+                ])
+                <li class="menu-title mt-3"><span>RESSOURCES HUMAINES</span></li>
+
+                <li>
+                    <ul>
+                        @canany(['agents.create', 'agents.view', 'services.view', 'baremes.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-id-badge"></i><span>Personnel</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('agents.create')
+                                <li><a href="{{ url('/agents') }}">Création Agents</a></li>
+                                @endcan
+                                @can('agents.view')
+                                <li><a href="{{ url('/liste_agents') }}">Liste Agents</a></li>
+                                @endcan
+                                @can('services.view')
+                                <li><a href="{{ url('/services') }}">Services</a></li>
+                                @endcan
+                                @can('baremes.view')
+                                <li><a href="{{ url('/baremes') }}">Barèmes & Grades</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        @canany(['horaires.view','groupes.view','plannings.view','retards.view','absences.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-clock"></i>
+                                <span>Temps & Présences</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('horaires.view')
+                                <li><a href="{{ url('/horaires') }}">Horaires</a></li>
+                                @endcan
+                                @can('groupes.view')
+                                <li><a href="{{ url('/groupes') }}">Groupes</a></li>
+                                @endcan
+                                @can('plannings.view')
+                                <li><a href="{{ url('/plannings') }}">Plannings rotatifs</a></li>
+                                @endcan
+                                @can('retards.view')
+                                <li><a href="{{ url('/retards') }}">Retards</a></li>
+                                @endcan
+                                @can('absences.view')
+                                <li><a href="{{ url('/absences') }}">Absences</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        @can('sanctions.view')
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-gavel"></i>
+                                <span>Discipline & Sanctions</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li><a href="{{ url('/sanctions') }}">Sanctions disciplinaires</a></li>
+                            </ul>
+                        </li>
+                        @endcan
+
+                        @canany(['conges.view','heures.view','autorisations.view','paie_parametres.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-briefcase"></i>
+                                <span>Congés & Autorisations</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('conges.view')
+                                <li><a href="{{ url('/conges') }}">Congés</a></li>
+                                @endcan
+                                @can('heures.view')
+                                <li><a href="{{ url('/heures') }}">Heures supplémentaires</a></li>
+                                @endcan
+                                @can('autorisations.view')
+                                <li><a href="{{ url('/autorisations') }}">Autorisations spéciales</a></li>
+                                @endcan
+                                @can('paie_parametres.view')
+                                <li><a href="{{ url('/parametres/formules') }}">Paramètres</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        @canany(['separations.view','desertions.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-alert-triangle"></i>
+                                <span>Incidents RH</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('separations.view')
+                                <li><a href="{{ url('/separations') }}">Séparations</a></li>
+                                @endcan
+                                @can('desertions.view')
+                                <li><a href="{{ url('/desertions') }}">Désertions</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+                    </ul>
+                </li>
+                @endcanany
+
+                {{-- ================= OPERATIONS ================= --}}
+                @canany(['mouvements.create','historiques_mouvements.view','sites.view','affectations.view','appels_non_repondu.create','appels_stats.view','vehicules.view','vehicule_rapports.view','absences.view','retards.view'])
+                <li class="menu-title mt-3"><span>OPÉRATIONS</span></li>
+
+                <li>
+                    <ul>
+                        @canany(['mouvements.create','historiques_mouvements.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-transfer"></i>
+                                <span>Mouvements</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('mouvements.create')
+                                <li><a href="{{ url('/mouvements') }}">Nouveau mouvement</a></li>
+                                @endcan
+                                @can('historiques_mouvements.view')
+                                <li><a href="{{ url('/historiques.mouvements') }}">Historique des mouvements</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        @canany(['sites.view','affectations.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-building"></i>
+                                <span>Sites </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('sites.view')
+                                <li><a href="{{ url('/sites') }}">Sites</a></li>
+                                @endcan
+                                @can('affectations.view')
+                                <li><a href="{{ url('/affectations') }}">Affectations</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        @canany(['appels_non_repondu.create','appels_stats.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-phone"></i>
+                                <span>Appels non répondus</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('appels_non_repondu.create')
+                                <li><a href="{{ url('/appels-non-repondu') }}">Saisies journalières</a></li>
+                                @endcan
+                                @can('appels_stats.view')
+                                <li><a href="{{ url('/appels_stats') }}">Statistiques</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        @canany(['vehicules.view','vehicule_rapports.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-truck"></i>
+                                <span>Flotte de véhicules</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('vehicules.view')
+                                <li><a href="{{ url('/vehicules') }}">Véhicules</a></li>
+                                @endcan
+                                @can('vehicule_rapports.view')
+                                <li><a href="{{ url('/vehicule-rapports') }}">Rapports véhicule</a></li>
+                                @endcan
+                                @can('vehicules.view')
+                                <li><a href="rapports-autres.html">Autres rapports</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        @canany(['absences.view','retards.view'])
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-clock"></i>
+                                <span>Présences</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('absences.view')
+                                <li><a href="{{ url('/absences') }}">Absences</a></li>
+                                @endcan
+                                @can('retards.view')
+                                <li><a href="{{ url('/retards') }}">Retards</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+                    </ul>
+                </li>
+                @endcanany
+
+                {{-- ================= PAIE ================= --}}
+                @canany([
+                    'paie_baremes.view','paie_parametres.view','paie_calcul.create','paie_bulletins.view',
+                    'paie_avances.create','paie_decomptes.view','paie_cnss.view'
+                ])
+                <li class="menu-title mt-3"><span>PAIE</span></li>
+                <li>
+                    <ul>
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-cash"></i>
+                                <span>Gestion de la paie</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('paie_baremes.view')
+                                <li><a href="paie-baremes.html">Barèmes & primes</a></li>
+                                @endcan
+                                @can('paie_parametres.view')
+                                <li><a href="paie-parametres.html">Paramètres de paie</a></li>
+                                @endcan
+                                @can('paie_calcul.create')
+                                <li><a href="paie-calcul.html">Calcul de la paie</a></li>
+                                @endcan
+                                @can('paie_bulletins.view')
+                                <li><a href="paie-bulletins.html">Bulletins de paie</a></li>
+                                @endcan
+                                @can('paie_avances.create')
+                                <li><a href="paie-avances.html">Avances & retenues</a></li>
+                                @endcan
+                                @can('paie_decomptes.view')
+                                <li><a href="paie-decomptes.html">Décomptes finaux</a></li>
+                                @endcan
+                                @can('paie_cnss.view')
+                                <li><a href="paie-cnss.html">CNSS / INPP / ONEM</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        {{-- ================= RAPPORTS ================= --}}
+                        @canany([
+                            'rapport_presences.view','rapport_conges.view','rapport_retards.view','rapport_heures_supp.view','rapport_paie.view'
+                        ])
+                        <li class="menu-title mt-3"><span>RAPPORTS</span></li>
+
+                        <li class="submenu">
+                            <a href="javascript:void(0);">
+                                <i class="ti ti-file-analytics"></i>
+                                <span>Rapports</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('rapport_presences.view')
+                                <li><a href="rapport-presences.html">Présences</a></li>
+                                @endcan
+                                @can('rapport_conges.view')
+                                <li><a href="rapport-conges.html">Congés</a></li>
+                                @endcan
+                                @can('rapport_retards.view')
+                                <li><a href="rapport-retards.html">Retards</a></li>
+                                @endcan
+                                @can('rapport_heures_supp.view')
+                                <li><a href="rapport-heures-supp.html">Heures supplémentaires</a></li>
+                                @endcan
+                                @can('rapport_paie.view')
+                                <li><a href="rapport-paie.html">Paie</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+
+                        {{-- ================= ADMINISTRATION ================= --}}
+                        @canany(['users.view','roles.view','audit.view','backups.view','paie_parametres.view'])
+                        <li class="menu-title mt-3"><span>ADMINISTRATION</span></li>
+
+                        <li class="submenu">
+                            <a href="javascript:void(0);" class="@active(['roles', 'users'])">
+                                <i class="ti ti-settings"></i>
+                                <span>Système</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                @can('users.view')
+                                <li><a class="@active(['users'])" href="{{ route("users") }}">Utilisateurs</a></li>
+                                @endcan
+                                @can('roles.view')
+                                <li><a class="@active(['roles'])" href="{{ route("roles") }}">Rôles & permissions</a></li>
+                                @endcan
+                                @can('audit.view')
+                                <li><a href="audit.html">Journal d'audit</a></li>
+                                @endcan
+                                @can('backups.view')
+                                <li><a href="backups.html">Sauvegardes</a></li>
+                                @endcan
+                                @can('paie_parametres.view')
+                                <li><a href="parametres.html">Paramètres système</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        @endcanany
+                    </ul>
+                </li>
             </ul>
-        </li>
-        @endcan
-
-        {{-- REQUÊTES --}}
-        @can('requetes.view')
-        <li>
-            <a href="{{ url("/requests") }}" class="side-menu {{ Route::is("requests") ? 'side-menu--active' : '' }}">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="message-circle" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Requêtes
-                </div>
-            </a>
-        </li>
-        @endcan
-
-        {{-- PLANNING --}}
-        @can('planning.view')
-        <li>
-            <a href="javascript:;" class="side-menu @active(['schedules', 'schedules.supervisor', 'schedules.report'])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="clock" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Plannings
-                    <div class="side-menu__sub-icon ">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="{{ url("/schedules") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Planning agents
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url("/schedules.supervisor") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Planning superviseurs
-                        </div>
-                    </a>
-                </li>
-                
-                <!-- <li>
-                    <a href="{{ url("/schedules.report") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Rapport de planning
-                        </div>
-                    </a>
-                </li> -->
-            </ul>
-        </li>
-        @endcan
-
-        {{-- RESSOURCES HUMAINES --}}
-        @can('rh.view')
-        <li>
-            <a href="javascript:;" class="side-menu  @active(['conges.management', 'ldd.management', 'pointages.agents'])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="users" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    RH
-                    <div class="side-menu__sub-icon">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-5 h-5"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="side-menu__sub">
-                <li>
-                    <a href="{{ url("/pointages.agents") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                        Pointages
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url("/conges.management") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Gestion des congés
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="/ldd.management" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                        LDD
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        @endcan
-
-        {{-- COMMUNIQUÉS --}}
-        @can('communiques.view')
-        <li>
-            <a href="{{ url("/announces") }}" class="side-menu {{ Route::is("announces") ? 'side-menu--active' : '' }}">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="clipboard" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Communiqués
-                </div>
-            </a>
-        </li>
-        @endcan
-
-        {{-- SIGNALEMENTS --}}
-        @can('signalements.view')
-        <li>
-            <a href="{{ url("/signalements") }}" class="side-menu {{ Route::is("signalements") ? 'side-menu--active' : '' }}">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="bell-ring" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Signalements
-                </div>
-            </a>
-        </li>
-        @endcan
-
-        <div class="my-4 side-nav__divider"></div>
-
-        {{-- CONFIGURATIONS --}}
-        @can('configurations.view')
-        <li>
-            <a href="javascript:;" class="side-menu @active(['secteurs', 'elements', 'config.planning'])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="settings" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Configurations
-                    <div class="side-menu__sub-icon ">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="{{ url("/secteurs") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Secteurs
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url("/elements") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Inspection Eléments
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url("/config.planning") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                        Planning automatique
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        @endcan
-
-        {{-- UTILISATEURS --}}
-        @can('utilisateurs.view')
-        <li>
-            <a href="javascript:;" class="side-menu {{ Route::is("user.add") || Route::is("user.list") ? 'side-menu--active' : '' }}">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="user" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Utilisateurs
-                    <div class="side-menu__sub-icon ">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                @can('utilisateurs.create')
-                <li>
-                    <a href="{{ url("/user.add") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Création utilisateur
-                        </div>
-                    </a>
-                </li>
-                @endcan
-
-                @can('utilisateurs.view')
-                <li>
-                    <a href="{{ url("/user.list") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Liste des utilisateurs
-                        </div>
-                    </a>
-                </li>
-                @endcan
-            </ul>
-        </li>
-        @endcan
-
-        {{-- LOGS --}}
-        @can('logs.view')
-        <li>
-            <a href="javascript:;" class="side-menu @active(['log.phones','log.activities', 'log.panics'])">
-                <div class="side-menu__icon">
-                    <i data-tw-merge="" data-lucide="history" class="stroke-1.5 w-5 h-5"></i>
-                </div>
-                <div class="side-menu__title">
-                    Rapport de logs
-                    <div class="side-menu__sub-icon ">
-                        <i data-tw-merge="" data-lucide="chevron-down" class="stroke-1.5 w-3 h-3"></i>
-                    </div>
-                </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="{{ url("/log.phones") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Rapport de téléphones
-                        </div>
-                    </a>
-                </li>
-                <!-- <li>
-                    <a href="{{ url("/log.activities") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            Travailleur isolé
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url("/log.panics") }}" class="side-menu">
-                        <div class="side-menu__icon">
-                            <i data-tw-merge="" data-lucide="arrow-right-circle" class="stroke-1.5 w-2 h-2"></i>
-                        </div>
-                        <div class="side-menu__title">
-                        Alertes paniques
-                        </div>
-                    </a>
-                </li> -->
-            </ul>
-        </li>
-        @endcan
-    </ul>
- </nav>
- <!-- END: Side Menu -->
+        </div>
+    </div>
+</div>

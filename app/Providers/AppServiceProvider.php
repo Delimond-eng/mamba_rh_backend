@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
                 \$active = '';
                 foreach ($routes as \$route) {
                     if (Route::is(\$route)) {
-                        \$active = 'side-menu--active';
+                        \$active = 'active subdrop';
                         break;
                     }
                 }

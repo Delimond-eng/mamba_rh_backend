@@ -12204,12 +12204,12 @@ table.table-bordered thead tr th p {
 
 /****** Utils ******/
 .page-header-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
-  content: var(--bs-breadcrumb-divider, "\ea65");
+  content: "\ea65";
   font-family: "tabler-icons" !important;
 }
 
 [dir=rtl] .page-header-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
-  content: var(--bs-breadcrumb-divider, "\ea64");
+  content: "\ea64";
   font-family: "tabler-icons" !important;
 }
 

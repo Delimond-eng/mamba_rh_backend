@@ -23,9 +23,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'role',
         'password',
-        'agency_id'
+        'role',
     ];
 
     /**
@@ -45,26 +44,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'datetime:d M Y H:i',
+        'updated_at' => 'datetime:d M Y H:i',
     ];
-
-    public function agencie(){
-        return $this->belongsTo(Agencie::class, foreignKey: 'agency_id');
-    }
-
-    public function hasMenu($menu)
-    {
-        return $this->hasAnyPermission([
-            "$menu.view",
-            "$menu.create",
-            "$menu.edit",
-            "$menu.delete"
-        ]);
-    }
-
-    public function hasPermission($menu, $action)
-    {
-        return $this->can("$menu.$action");
-    }
 
     public function notifications()
     {

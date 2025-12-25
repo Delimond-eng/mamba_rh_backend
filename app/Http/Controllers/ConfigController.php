@@ -133,48 +133,4 @@ class ConfigController extends Controller
         }
     }
 
-
-    /**
-     * Affiche la liste de element de control pour la supervision paginé
-     * @return JsonResponse
-    */
-    public function viewAllPaginateElements(){
-        $sectors = SupervisionControlElement::orderBy("libelle")->paginate(10);
-        return response()->json([
-            "status"=>"success",
-            "elements"=>$sectors
-        ]);
-    }
-
-    /**
-     * Cree & modifie un secteur
-     * @param Request $request
-     * @return JsonResponse
-    */
-    public function createElement(Request $request){
-        try{
-            $data = $request->validate([
-                "libelle"=>"required|string",
-                "description"=>"nullable|string",
-            ]);
-            $response = SupervisionControlElement::updateOrCreate(
-                [
-                    "id"=>$request->id,
-                ],
-                $data
-            );
-
-            return response()->json([
-                "status"=>"success",
-                "result"=>$response
-            ]);
-        }
-        catch (\Illuminate\Validation\ValidationException $e) {
-            $errors = $e->validator->errors()->all();
-            return response()->json(['errors' => $errors ]);
-        }
-        catch (\Illuminate\Database\QueryException $e){
-            return response()->json(['errors' => $e->getMessage() ]);
-        }
-    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SupervisionController;
+use App\Http\Controllers\UserController;
 use App\Models\SitePlanningConfig;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -99,11 +100,24 @@ Route::get('/sites.list', function () {
 
 // API endpoints for horaires and groupes
 Route::middleware(['auth'])->group(function () {
-    Route::get('/api/horaires', [App\Http\Controllers\PresenceController::class, 'getAllHoraires']);
-    Route::post('/api/horaires', [App\Http\Controllers\PresenceController::class, 'createHoraire']);
 
-    Route::get('/api/groupes', [App\Http\Controllers\PresenceController::class, 'getAllGroups']);
-    Route::post('/api/groupes', [App\Http\Controllers\PresenceController::class, 'createGroup']);
+   Route::view("/roles", "role_permissions")->name("roles");
+   Route::view("/users", "users")->name("users");
+
+   //=============================User permissions manage route begin=====================================//
+   Route::get("/actions", [UserController::class, "getActions"])->name("actions");
+   Route::post("/role/create", [UserController::class, "createOrUpdateRole"])->name("role.create");
+   Route::get("/roles/all", [UserController::class, "getAllRoles"])->name("roles.all");
+   Route::post("/user/create", [UserController::class, "createOrUpdateUser"])->name("user.create");
+   Route::get("/users/all", [UserController::class, "getAllUsers"])->name("users.all");
+   Route::post("/user/access", [UserController::class, "attributeAccess"])->name("user.create");
+
+
+   Route::get('/api/horaires', [App\Http\Controllers\PresenceController::class, 'getAllHoraires']);
+   Route::post('/api/horaires', [App\Http\Controllers\PresenceController::class, 'createHoraire']);
+
+   Route::get('/api/groupes', [App\Http\Controllers\PresenceController::class, 'getAllGroups']);
+   Route::post('/api/groupes', [App\Http\Controllers\PresenceController::class, 'createGroup']);
    // API to assign congés to multiple agents
    Route::post('/api/conges/assign', [App\Http\Controllers\CongesController::class, 'assign']);
 
