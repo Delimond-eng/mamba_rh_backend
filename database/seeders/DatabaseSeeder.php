@@ -10,6 +10,7 @@ use App\Models\Secteur;
 use App\Models\SupervisionControlElement;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        foreach (config('actions') as $item) {
+            $entity = $item['entity'];
+
+            foreach ($item['actions'] as $actionName) {
+                Permission::firstOrCreate([
+                    'name' => "{$entity}.{$actionName}",
+                    'guard_name' => 'web'
+                ]);
+            }
+        }
         $user = \App\Models\User::updateOrCreate(
             ['email'=>'admin@mb.c'],
             [
