@@ -64,36 +64,36 @@ Route::middleware(['auth'])->group(function () {
    // Paramètres -> Formules (autorisations / congés)
    Route::get('/parametres/formules', function () {
       return view('parametres.formules');
-   })->name('parametres.formules')->middleware("paie_parametres.view");
+   })->name('parametres.formules')->middleware("can:paie_parametres.view");
 
    // Congés page (assign congés to agents)
    Route::get('/conges', function () {
       return view('conges');
-   })->name('conges.index')->middleware("conges.view");
+   })->name('conges.index')->middleware("can:conges.view");
 
    // Autorisations spéciales page (reuse conges view in autorisation mode)
    Route::get('/autorisations', function () {
       return view('conges', ['mode' => 'autorisation']);
-   })->name('autorisations.index')->middleware("autorisations.view");
+   })->name('autorisations.index')->middleware("can:autorisations.view");
 
    // Horaires - pages et API
    Route::get('/horaires', function () {
       return view('horaires');
-   })->name('horaires.index')->middleware("autorisations.view");;
+   })->name('horaires.index')->middleware("can:autorisations.view");;
 
    Route::get('/groupes', function () {
       return view('groupes');
-   })->name('groupes.index')->middleware("groupes.view");;
+   })->name('groupes.index')->middleware("can:groupes.view");;
 
    // Sites page (list and creation)
    Route::get('/sites', function () {
       return view('sites');
-   })->name('sites.list')->middleware("sites.view");;
+   })->name('sites.list')->middleware("scan:ites.view");;
 
    // Some menus link to /sites.list, keep a route for compatibility
    Route::get('/sites.list', function () {
       return view('sites');
-   })->middleware("sites.view");;
+   })->middleware("can:sites.view");;
 
    Route::view("/roles", "role_permissions")->name("roles")->middleware("can:roles.view");
    Route::view("/users", "users")->name("users")->middleware("can:users.view");
